@@ -4,7 +4,7 @@
 
 Submitted by:
 - **Manthra Natarajan**
-- **Team Member 2 Name Here**
+- **Michael Tanjuakio**
 - **etc**
 - **Mymuna Murshed**
 
