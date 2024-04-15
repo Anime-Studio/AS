@@ -5,7 +5,7 @@
 Submitted by:
 - **Manthra Natarajan**
 - **Michael Tanjuakio**
-- **etc**
+- **Dhruv Tripathi**
 - **Mymuna Murshed**
 - **Eerav Kandikattu**
 
