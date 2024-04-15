@@ -72,6 +72,7 @@ Required Feature
 ## Wireframes
 <!-- Add picture of your hand sketched wireframes in this section -->
 ![IMG_0740](https://hackmd.io/_uploads/SJIQIe5eC.jpg)
+<img width="559" alt="wireframe" src="https://github.com/Anime-Studio/AS/assets/17733456/39f2a4d9-d901-477b-a0aa-76dfc57b68f5">
 
 
 ### [BONUS] Digital Wireframes & Mockups
