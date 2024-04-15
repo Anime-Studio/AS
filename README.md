@@ -7,6 +7,7 @@ Submitted by:
 - **Michael Tanjuakio**
 - **Mymuna Murshed**
 - **Eerav Kandikattu**
+- **Farhin Alavi Rashid**
 
 Time spent: **3** hours spent in total
 
