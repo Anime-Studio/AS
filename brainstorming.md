@@ -81,3 +81,5 @@ Top 3:
     - app aims to encourage users to develop a habit of reading by providing easy access to a vast collection of books. Features like personalized recommendations, reading progress tracking, and the ability to create bookshelves can help users stay engaged with the app.
 - Scope: 
     - The scope of the app includes features for browsing books, searching for specific titles or authors, borrowing books, reading or listening to books online or offline, managing borrowed items, receiving recommendations based on reading preferences, and social features like sharing reading progress or book recommendations with friends.
+
+- Final Idea: Crunchyroll Clone!
