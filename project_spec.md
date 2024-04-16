@@ -76,8 +76,11 @@ Required Feature
 
 
 ### [BONUS] Digital Wireframes & Mockups
+![figma wireframe](https://github.com/Anime-Studio/AS/assets/123594031/09fb5cdf-2173-46fd-a216-a5f90d8591cc)
 
 ### [BONUS] Interactive Prototype
+![Project8](https://github.com/Anime-Studio/AS/assets/123594031/c65a9ae7-a9a1-48ec-ac29-3ce71bffe7ce)
+
 
 ## Build Notes
 
