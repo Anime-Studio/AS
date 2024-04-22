@@ -28,7 +28,7 @@ class Adapter(
         holder.textView1.text = item1
         holder.textView2.text = item2
         Glide.with(holder.itemView)
-            .load(item3[position])
+            .load(item3)
             .centerCrop()
             .into(holder.image)
     }

@@ -11,20 +11,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
-import com.codepath.asynchttpclient.callback.TextHttpResponseHandler
 import okhttp3.Headers
 
 class MainActivity : AppCompatActivity() {
-    //private val title = mutableListOf<String>()
-    //private val epCount = mutableListOf<String>()
-    //private val poster = mutableListOf<String>()
+    private val title = mutableListOf<String>()
+    private val epCount = mutableListOf<String>()
+    private val poster = mutableListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        //val recyclerView: RecyclerView = findViewById(R.id.recyclerview)
-        //recyclerView.layoutManager = LinearLayoutManager(this)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerview)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val adapter = Adapter(title, epCount, poster)
+        recyclerView.adapter = adapter
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -42,28 +43,36 @@ class MainActivity : AppCompatActivity() {
                 // Access a JSON array response with `json.jsonArray`
                 //Log.d("DEBUG ARRAY", "hello?")
                 //Log.d("DEBUG ARRAY", json.jsonArray.toString())
-                // Access a JSON object response with `json.jsonObject`
-                Log.d("anime", json.jsonObject.toString())
+                for (i in 0 .. 10){
+                    // Access a JSON object response with `json.jsonObject`
+                    Log.d("anime", json.jsonObject.toString())
 
-                // Get anime data
-                val anime_data = json.jsonObject.getJSONObject("data")
+                    // Get anime data
+                    val anime_data = json.jsonObject.getJSONObject("data")
 
-                // Get anime name
-                val anime_name = anime_data.getString("title")
+                    // Get anime name
+                    val anime_name = anime_data.getString("title")
 
-                // Get anime image
-                val anime_image_list = anime_data.getJSONObject("images")
-                val anime_image_jpg = anime_image_list.getJSONObject("jpg")
-                val anime_image_url = anime_image_jpg.getString("image_url")
+                    // Get anime image
+                    val anime_image_list = anime_data.getJSONObject("images")
+                    val anime_image_jpg = anime_image_list.getJSONObject("jpg")
+                    val anime_image_url = anime_image_jpg.getString("image_url")
 
-                // Get anime episode count
-                val anime_ep_count = anime_data.getString("episodes")
+                    // Get anime episode count
+                    val anime_ep_count = anime_data.getString("episodes")
 
-                // Display output in log
-                Log.d("anime", "data = " + anime_data)
-                Log.d("anime", "anime name = " + anime_name)
-                Log.d("anime", "anime image url = " + anime_image_url)
-                Log.d("anime", "anime ep count = " + anime_ep_count)
+                    // Display output in log
+                    Log.d("anime", "data = " + anime_data)
+                    Log.d("anime", "anime name = " + anime_name)
+                    Log.d("anime", "anime image url = " + anime_image_url)
+                    Log.d("anime", "anime ep count = " + anime_ep_count)
+
+                    title.add(anime_name)
+                    epCount.add(anime_ep_count)
+                    poster.add(anime_image_url)
+                }
+
+                adapter.notifyDataSetChanged()
             }
 
             override fun onFailure(
