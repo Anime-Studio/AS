@@ -61,7 +61,7 @@ Required Feature
   - => **App displays list of episodes and description**
 - **User scrolls anime list**
     - => **App displays new anime shows**
-- **User presses play/pause button in video
+- **User presses play/pause button in video**
     - => **App pauses/plays video**
 - **User presses back button**
     - => **App goes to the previous screen**
