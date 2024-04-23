@@ -32,8 +32,8 @@
 
 Required Features:
 
--[x] **Horizontal Recyclerviews of anime shows (top anime, most watched, shounen, shoujo, isekai, etc..)**
--[x] **Displays relevant information about an anime and its episodes when clicked**
+- [X] **Horizontal Recyclerviews of anime shows (top anime, most watched, shounen, shoujo, isekai, etc..)**
+- [X] **Displays relevant information about an anime and its episodes when clicked**
 - **Stream episode/movie when clicked with simple video player interface**
 - **Able to search animes in the app**
 
