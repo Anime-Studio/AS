@@ -39,7 +39,7 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vl3VE8ZOceA/0.jpg)](https://www.youtube.com/watch?v=Vl3VE8ZOceA)
+[![demovideo](https://img.youtube.com/vi/6ojHPsCSG-0/0.jpg)](https://www.youtube.com/watch?v=6ojHPsCSG-0 )
 
 VIDEO created with **Game Bar**
 
