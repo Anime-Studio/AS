@@ -32,8 +32,8 @@
 
 Required Features:
 
-- **Horizontal Recyclerviews of anime shows (top anime, most watched, shounen, shoujo, isekai, etc..)**
-- **Displays relevant information about an anime and its episodes when clicked**
+[x] **Horizontal Recyclerviews of anime shows (top anime, most watched, shounen, shoujo, isekai, etc..)**
+[x] **Displays relevant information about an anime and its episodes when clicked**
 - **Stream episode/movie when clicked with simple video player interface**
 - **Able to search animes in the app**
 
@@ -57,13 +57,13 @@ Required Feature
 
 - **User clicks on a show episode**
   - => **Show starts streaming**
-- **User clicks on show**
+[x] **User clicks on show**
   - => **App displays list of episodes and description**
-- **User scrolls anime list**
+[x] **User scrolls anime list**
     - => **App displays new anime shows**
 - **User presses play/pause button in video**
     - => **App pauses/plays video**
-- **User presses back button**
+[x] **User presses back button**
     - => **App goes to the previous screen**
 - **User presses full screen button**
     - => **App makes video full screen**
