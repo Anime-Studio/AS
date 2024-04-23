@@ -14,10 +14,11 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.anime_studio_app.databinding.ActivityMainBinding
 import okhttp3.Headers
 
-class anime(title_: String, epCount_: String, poster_: String) {
-    val title = title_;
-    val epCount = epCount_;
-    val poster = poster_;
+class anime(title_: String, jap_title_: String, poster_: String, mal_id_: Int) {
+    val title = title_
+    val jap_title = jap_title_
+    val poster = poster_
+    val mal_id = mal_id_
 }
 
 class MainActivity : AppCompatActivity() {
@@ -25,10 +26,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding // View Binding
     private lateinit var animeList : MutableList<anime> // Anime List
     private lateinit var rvAnime : RecyclerView // Recycler View
+    private var epCount = 0
 
-    //    private val title = mutableListOf<String>()
-//    private val epCount = mutableListOf<String>()
-//    private val poster = mutableListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -54,13 +54,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getAnimeItem(): anime {
+    private fun getAnimeItem() {
         val client = AsyncHttpClient()
         val params = RequestParams()
 
         var anime_name = ""
         var anime_image_url = ""
-        var anime_ep_count = ""
+        var anime_jap_name = ""
 
         client["https://api.jikan.moe/v4/random/anime", params, object :
             JsonHttpResponseHandler() {
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 // Log.d("DEBUG ARRAY", json.jsonArray.toString())
 
                 // Access a JSON object response with `json.jsonObject`
-//                Log.d("anime", json.jsonObject.toString())
+                // Log.d("anime", json.jsonObject.toString())
 
                 // Get anime data
                 val anime_data = json.jsonObject.getJSONObject("data")
@@ -83,13 +83,31 @@ class MainActivity : AppCompatActivity() {
                 val anime_image_jpg = anime_image_list.getJSONObject("jpg")
                 anime_image_url = anime_image_jpg.getString("image_url")
 
+                // Get anime japanese name
+                anime_jap_name = anime_data.getString("title_japanese")
+
+                // MAL ID
+                val mal_id = anime_data.getString("mal_id").toInt()
+
                 // Get anime episode count
-                anime_ep_count = anime_data.getString("title_japanese")
+                var anime_epCount_ = anime_data.getString("episodes")
+                if (anime_epCount_.equals("null")) {
+                    anime_epCount_ = "0"
+                }
+
+                val anime_epCount  = anime_epCount_.toInt()
+
 
                 // Get anime rating
                 val anime_rating = anime_data.getString("rating")
-                if (!anime_rating.equals("G - All Ages")) {
-                    Log.d("anime", "reroll, anime is explicit")
+                if (
+                    (
+                            !anime_rating.equals("G - All Ages") &&
+                                    !anime_rating.equals("PG - Children") &&
+                                    !anime_rating.equals("PG-13 - Teens 13 or older")) ||
+                    anime_epCount < 5
+                ) {
+                    Log.d("anime", "reroll, anime is explicit/no episodes")
                     getAnimeItem()
                 }
                 else {
@@ -98,10 +116,11 @@ class MainActivity : AppCompatActivity() {
                     Log.d("anime", "data = " + anime_data)
                     Log.d("anime", "anime name = " + anime_name)
                     Log.d("anime", "anime image url = " + anime_image_url)
-                    Log.d("anime", "anime ep count = " + anime_ep_count)
+                    Log.d("anime", "anime japanese name = " + anime_jap_name)
+                    Log.d("anime", "anime ep count = " + anime_epCount)
 
                     // Add anime data to the list
-                    animeList.add(anime(anime_name, anime_ep_count, anime_image_url))
+                    animeList.add(anime(anime_name, anime_jap_name, anime_image_url, mal_id))
                     Log.d("anime", "anime added " + animeList.size)
 
                     val adapter = AnimeAdapter(animeList, applicationContext)
@@ -120,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("anime", "it failed :( " + response + " "+ throwable)
             }
         }]
-        return anime(anime_name, anime_ep_count, anime_image_url)
     }
+
 
 }

@@ -2,6 +2,8 @@ package com.example.anime_studio_app
 
 
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -18,17 +21,14 @@ class AnimeAdapter(private val animeList: List<anime>, private var context_: Con
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val animeImage: ImageView
         val animeTitle: TextView
-        val animeEpCount: TextView
+        val animeJapName: TextView
         val animeInfo: Button
 
         init {
             animeImage = view.findViewById(R.id.poster)
             animeTitle = view.findViewById(R.id.title)
-            animeEpCount = view.findViewById(R.id.epcount)
+            animeJapName = view.findViewById(R.id.jap_name)
             animeInfo = view.findViewById(R.id.anime_info_button)
-            animeInfo.setOnClickListener {
-
-            }
         }
     }
 
@@ -43,7 +43,7 @@ class AnimeAdapter(private val animeList: List<anime>, private var context_: Con
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Log.d("anime_display", "display: " + animeList[position].title + "\n" + animeList[position].epCount + "\n" + animeList[position].poster)
+        Log.d("anime_display", "display: " + animeList[position].title + "\n" + animeList[position].jap_title + "\n" + animeList[position].poster)
 
         // Anime Image
         Glide.with(holder.itemView)
@@ -52,12 +52,15 @@ class AnimeAdapter(private val animeList: List<anime>, private var context_: Con
             .into(holder.animeImage)
 
         holder.animeTitle.text = animeList[position].title  // Anime Title
-        holder.animeEpCount.text = animeList[position].epCount  // Anime Episode Count
+        holder.animeJapName.text = animeList[position].jap_title  // Anime Episode Count
+        holder.animeInfo.setOnClickListener {v ->
 
+            // Go to anime info screen
+            val context = v.context // context
+            val intent = Intent(context, InfoActivity::class.java)
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra("mal_id", animeList[position].mal_id)
+            context.applicationContext.startActivity(intent)
+        }
     }
-
-
-
-
-
 }
