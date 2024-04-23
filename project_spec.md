@@ -88,6 +88,7 @@ process, or what you learned this unit!
 
 For Milestone 2, include **2+ Videos/GIFs** of the build process here!
 ![Project9](https://github.com/Anime-Studio/AS/assets/123594031/9d46b9c8-8286-4ac0-bac7-1508b08bfd16)
+![Project9_2](https://github.com/Anime-Studio/AS/assets/123594031/664078af-1b94-498f-9427-a5ece0ee29ac)
 
 ## License
 
