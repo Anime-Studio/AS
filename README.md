@@ -39,7 +39,7 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 
-[![demovideo](https://img.youtube.com/vi/6ojHPsCSG-0/0.jpg)](https://www.youtube.com/watch?v=6ojHPsCSG-0 )
+https://github.com/Anime-Studio/AS/assets/17733456/e8fe0c1e-0d2c-46a2-b381-379b89910412
 
 VIDEO created with **Game Bar**
 
