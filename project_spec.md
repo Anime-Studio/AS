@@ -67,7 +67,6 @@ Required Feature
     - => **App goes to the previous screen**
 - **User presses full screen button**
     - => **App makes video full screen**
-- 
 
 ## Wireframes
 <!-- Add picture of your hand sketched wireframes in this section -->
