@@ -57,13 +57,13 @@ Required Feature
 
 - **User clicks on a show episode**
   - => **Show starts streaming**
--[x] **User clicks on show**
+- [X] **User clicks on show**
   - => **App displays list of episodes and description**
--[x] **User scrolls anime list**
+- [X] **User scrolls anime list**
     - => **App displays new anime shows**
 - **User presses play/pause button in video**
     - => **App pauses/plays video**
--[x] **User presses back button**
+- [X] **User presses back button**
     - => **App goes to the previous screen**
 - **User presses full screen button**
     - => **App makes video full screen**
