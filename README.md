@@ -11,7 +11,7 @@ Time spent: **15** hours spent in total
 
 ## Summary
 
-This document provides a summary of our project building process for our app, **App Name Here**This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **Anime Studio is a streaming app that allows users to watch animes, see their information, and is able to provide a easy to use library of your favorite animes**
+This document provides a summary of our project building process for our app, **Anime Studio**. This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **Anime Studio is a streaming app that allows users to watch animes, see their information, and is able to provide a easy to use library of your favorite animes**
 
 ## Milestone Requirements
 
